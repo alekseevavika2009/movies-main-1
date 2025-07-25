@@ -9,7 +9,7 @@ import java.sql.*;
 
  class LibraryTest {
 
-     String DB_URL = "jdbc:postgresql://localhost:55432/movies";
+     String DB_URL = "jdbc:postgresql://localhost:4000/movies";
      String DB_USER = "postgres";
      String DB_PASSWORD = "postgress";
 
@@ -66,9 +66,10 @@ import java.sql.*;
          }
      }
 
-   @BeforeAll
-   public void loginTest() {
-     String userName = "userName";
-     String password = "password";
 
-   }
+ @Test void appOneMovie() {
+
+     OkHttpClient client = new OkHttpClient();
+
+     Request request = new Request.Builder()
+             .url("http://localhost:4000/v1/movies").build();
